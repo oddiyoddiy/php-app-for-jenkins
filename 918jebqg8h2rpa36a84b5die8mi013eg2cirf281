@@ -1,0 +1,85 @@
+Return-Path: <uroqbekmirzayev@gmail.com>
+Received: from mail-ej1-f44.google.com (mail-ej1-f44.google.com [209.85.218.44])
+ by inbound-smtp.us-east-1.amazonaws.com with SMTP id 918jebqg8h2rpa36a84b5die8mi013eg2cirf281
+ for uroqbek@mirzayev.uz;
+ Sun, 13 Jul 2025 07:01:35 +0000 (UTC)
+X-SES-Spam-Verdict: PASS
+X-SES-Virus-Verdict: PASS
+Received-SPF: pass (spfCheck: domain of _spf.google.com designates 209.85.218.44 as permitted sender) client-ip=209.85.218.44; envelope-from=uroqbekmirzayev@gmail.com; helo=mail-ej1-f44.google.com;
+Authentication-Results: amazonses.com;
+ spf=pass (spfCheck: domain of _spf.google.com designates 209.85.218.44 as permitted sender) client-ip=209.85.218.44; envelope-from=uroqbekmirzayev@gmail.com; helo=mail-ej1-f44.google.com;
+ dkim=pass header.i=@gmail.com;
+ dmarc=pass header.from=gmail.com;
+X-SES-RECEIPT: AEFBQUFBQUFBQUFFMmlhRUh0TjVVRm50dEpUTnNtUThkS1JWOFFQSVB4RlUrazJPVFRwVjI3dGpoYnBRUllxQkZsenZab21vZ3hIZjBlTmVTTkpCb1NqVUFEVzlqWVZWY0F2dUxSSE5VQkFFeGNxRUM3cVlseGpNVFNpbFdIWk9nRVdHUUtCSHIyMDFPYWduU1gyQm45NlNyOU8wbUFUSG96REZHcUZFaHNwampmaUpoWmpyREdwZWxGcnU3aUNnakx2bStKTGNvUWRRUHE2d0hvTEo0c3VWNlAzTllDN0lla3RnL3JRU2lQZmlsRVB2SG44d01YTTc0cXBoamozNmhwK0k2dXRRYTFNZ2E2WWVKcDducFNIeDUrTElDQ3MvTjYwdE9jNXc4UkRla2V2eERDbE5RcUE9PQ==
+X-SES-DKIM-SIGNATURE: a=rsa-sha256; q=dns/txt; b=sAk2sfv2WX7XAP4Vp/TMRdmcEQpDzaUWuHXoeWaKb33GuRSJbKg/GTR0fYoe9RCAS3XNudK2D/6DcM7nXk0mVnBfPFNb1uAJLzAjI3bW61Og8rCyihIfrN9mQ1qW/SK5cL+2m8bsylMQbr1EyFXtNHFBpUhgL9rKyMUFlhnyUKA=; c=relaxed/simple; s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw; d=amazonses.com; t=1752390096; v=1; bh=VVMhzSgsssesa1WYyGRaaOfsxs28zzHtMekYRhayf3w=; h=From:To:Cc:Bcc:Subject:Date:Message-ID:MIME-Version:Content-Type:X-SES-RECEIPT;
+Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-ae3703c2a8bso648846266b.0
+        for <uroqbek@mirzayev.uz>; Sun, 13 Jul 2025 00:01:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1752390094; x=1752994894; darn=mirzayev.uz;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=VVMhzSgsssesa1WYyGRaaOfsxs28zzHtMekYRhayf3w=;
+        b=CakWNKPJzKRKmNiaaV58Q25cscWhb3skz4ZpEFxBPTqwCzaptHLuAe6RqbG3W21vOq
+         VN0sns/yhE1ZTvM88/8FAK9orN9Ii1N1S4n8FwnNVq644unjq/BsyRIaHzoC99GkzvYe
+         TMPxjunxhdI6vPVjuYVhr5/qhxYjPWiwuFyiCDaZRzGFXhSUuiBsZwVBagpDzs0Alhrt
+         YsL4kcWtyVdO2KMeW2VRIExU6wg3HRdSzodBxNMuOZhFvCZ85xYSYxIz8QRlzGstmSDj
+         NM+QrsXWLH22ghzM7UaBz/2Q/Ikp8DMDUpaxK7aQ2IjvDV94sGIlXL+V+pSyTuTB0cwg
+         A9aA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1752390094; x=1752994894;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=VVMhzSgsssesa1WYyGRaaOfsxs28zzHtMekYRhayf3w=;
+        b=jcfX5NugmzKrBVOr41Qy6RYu+8qEJRyJtM8iUD10D1uchKesd9QxGsu7FbTpuDuTlF
+         4twxMj4uusj0nTF1my5gCofL2TfrDHxks67uyPofFZ3wuTcE2nOpr9i6orNjWzxYyCz/
+         d1pmlvW9zmBI+EqTx/n6IBRGUuqfzgCQmTJaSiYKkqCIPyKyM0DATn+fi5VgIXJMhBJ/
+         9/iDoBUx2AL3V5ss9SQTgsXbk7I4ZnGsIvAtKSN0tsMUoXZfjS8QpKraT38U13cp5FNh
+         Wh1t+gvwJp4oqbbe99OdwpyS6gsWJHq0XFm4n44M3fIAkNP9wY6NWC+CJV19lLxImLa1
+         W1Zg==
+X-Gm-Message-State: AOJu0YxADZA7CL94tQMmSeZie8wwlpPaJSNEEkmjIiXdgM+IUElL+EaQ
+	peCC8NqwEv+Ea4PyDbmwJpc7ylajpSUfOAmaY3twNUGm56qomvEu12msTBaMCCD0SognCpBWBZx
+	MGAzhIo7nwqzj7b6jSfb0BG1ZXItBZc/xlA==
+X-Gm-Gg: ASbGncsb3jyskx4puVAAlF+ZAhBxQ+DWndGf74TBJQM0vDOkpzx+FQWn6BxjaOD4cj7
+	3gaxJogXm2fAjmKsqMO7HpAt5GW7RNIX/z4iyhwe8/8amVqYLxKlU9+vUuLKoZcALb9MTEmHMY+
+	MxTpRwyYrWaypn+hk7xZC/d79san5/FD2y1yQzaQx9pmE9XQTm1/1jmlVhs7AfPz+BGA/gDXlOW
+	R4IVhPm
+X-Google-Smtp-Source: AGHT+IHNWP1FVVRCYht7q+oNmhD5x2rPE0UYtqVrA7zN4x15kMcHLj8N9CzlYLqn3ZCvNpIxPjqzsRkyUCEiKjEx3HE=
+X-Received: by 2002:a17:906:c115:b0:ad5:2e5b:d16b with SMTP id
+ a640c23a62f3a-ae6fbe3d07emr1015886566b.27.1752390093522; Sun, 13 Jul 2025
+ 00:01:33 -0700 (PDT)
+MIME-Version: 1.0
+References: <01000198028be88d-528d8a63-2a9b-4b83-8689-c19665be08c3-000000@email.amazonses.com>
+In-Reply-To: <01000198028be88d-528d8a63-2a9b-4b83-8689-c19665be08c3-000000@email.amazonses.com>
+From: Mirzaev <uroqbekmirzayev@gmail.com>
+Date: Sun, 13 Jul 2025 12:01:22 +0500
+X-Gm-Features: Ac12FXxx9j3kb9PjDB3Qhw1v8kAqj-GQ5XHbnArVbNKcRjO-Y-E6vDePPJZzQnk
+Message-ID: <CAEYTVGNJGbUAiXMC5EoF7-gKQB0htY95nX8h0=3cka1a0C8Fkw@mail.gmail.com>
+Subject: Re: Hello From uroqbek
+To: uroqbek@mirzayev.uz
+Content-Type: multipart/alternative; boundary="000000000000084a440639ca1db8"
+
+--000000000000084a440639ca1db8
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi my frinds
+
+
+=D0=B2=D1=81, 13 =D0=B8=D1=8E=D0=BB. 2025=E2=80=AF=D0=B3. =D0=B2 11:49, <ur=
+oqbek@mirzayev.uz>:
+
+> Privet This is for check
+
+--000000000000084a440639ca1db8
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Hi my frinds<div><br></div></div><br><div class=3D"gmail_q=
+uote gmail_quote_container"><div dir=3D"ltr" class=3D"gmail_attr">=D0=B2=D1=
+=81, 13 =D0=B8=D1=8E=D0=BB. 2025=E2=80=AF=D0=B3. =D0=B2 11:49, &lt;<a href=
+=3D"mailto:uroqbek@mirzayev.uz">uroqbek@mirzayev.uz</a>&gt;:<br></div><bloc=
+kquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:=
+1px solid rgb(204,204,204);padding-left:1ex">Privet=20
+This is for check</blockquote></div>
+
+--000000000000084a440639ca1db8--
